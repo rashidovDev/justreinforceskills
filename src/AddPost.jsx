@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { postAdd } from './store/slice/postsSlice'
-import { nanoid } from '@reduxjs/toolkit'
 
 const AddPost = () => {
 
@@ -15,13 +14,7 @@ const dispatch = useDispatch()
 
 const addPosts = (e) => {
     e.preventDefault()
-    const postt = {
-        id : new Date(),
-        name : post.name,
-        age : post.age
-    }
-    console.log(postt)
-        dispatch(postAdd(postt))
+        dispatch(postAdd(post.name, post.age))
 }
   return (
     <form onSubmit={addPosts}>
