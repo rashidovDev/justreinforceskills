@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import { postAdd } from './store/slice/postsSlice'
 
 const AddPost = () => {
-
     const [post, setPost] = useState({
         name : '',
         age : ''

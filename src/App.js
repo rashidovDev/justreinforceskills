@@ -1,17 +1,17 @@
 import React from 'react'
 import AddPost from './AddPost'
-import Counter from './component/Counter'
+import Modal from './component/Modal/Modal'
+import Navbar from './component/Navbar'
+import Posts from './component/Posts'
 import User from './component/User'
-import PostList from './PostList'
 
 const App = () => {
   return (
-    <div>
-      <User/>
-      <Counter/>
-      <AddPost/>
-      <PostList/>
-    </div>
+    <>
+      <Navbar/> 
+      <Posts/>
+      <Modal/>
+    </>
   )
 }
 
