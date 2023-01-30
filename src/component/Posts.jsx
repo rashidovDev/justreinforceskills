@@ -7,6 +7,8 @@ import PostList from './PostList'
 const Posts = () => {
     const posts = useSelector(state => state.posts)
 
+    const orderedPost = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
+
     const dispatch = useDispatch()
   return (
     <div  className='md:w-[700px] w-[350px] m-auto'> 
@@ -16,7 +18,7 @@ const Posts = () => {
     </div>
     <div className=' mb-8 mt-3 bg-[#F8F8F8] rounded-[5px] p-5'>
         <h1 className='text-center text-[32px] rounded-[5px] mb-2'>Posts</h1>
-        {posts.map((post, idx) => (
+        {orderedPost.map((post, idx) => (
         <PostList key={idx + 1} post={post}/>
         ))}
     </div>
