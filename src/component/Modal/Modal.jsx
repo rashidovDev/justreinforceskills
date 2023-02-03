@@ -12,20 +12,18 @@ const Modal = () => {
     const [content, setContent] = useState('')
     const [image, setImage] = useState()
     const [userId, setUserId] = useState('')
-
     const users = useSelector(selectAllUsers)
-
     const dispatch = useDispatch()
 
     const addPost = (e) => {
       e.preventDefault()
-      dispatch(postAdd(title, content,image.name, userId))
+      dispatch(postAdd(title, content,image, userId))
       dispatch(setModal())
       setTitle('')
       setContent('')    
+      setImage('')
     }
-
-    console.log(image)
+    console.log(userId)
 
     const canSave = Boolean(title) && Boolean(content) && Boolean(userId)
     const isModal = useSelector(state => state.modal.isModal)
@@ -34,12 +32,12 @@ const Modal = () => {
         <div className='bg-[#fff] rounded-[10px] w-[350px] md:w-[500px] m-auto relative md:p-5 p-4'>
              <h1 className='text-center text-[25px]'>Add Post</h1>
              <div className='w-[100%] m-auto'>
-             <label className='md:ml-16' htmlFor="postSelect">Name</label>
+             <label className='md:ml-16 ml-12 text-[#999] text-[14px] pr-[8px]' htmlFor="postSelect">Name</label>
              <select
              id='postSelect'
              value={userId}
              onChange={(e) => setUserId(e.target.value)}
-             className={`border md:w-[300px] w-[220px]  border-[#DEE2E6] outline-[#407BFF] px-3 py-[6px]`} >
+             className={`border md:w-[300px] w-[206px]  border-[#DEE2E6] outline-[#407BFF] px-3 py-[6px]`} >
                 <option value=''></option>
              {users.map((user, idx) => (
                <option key={idx + 1} value={user.id}>
@@ -51,11 +49,7 @@ const Modal = () => {
              <MyInput name="Title" placeholder='Enter title' value={title} setValue={setTitle} />
              </div>
              <MyInput name="Content" placeholder='Enter content' value={content} setValue={setContent} />
-             <label className='md:ml-16' htmlFor="postImage">Name</label>
-             <input type="file" 
-       id="avatar" name="avatar"
-       onChange={(e) => setImage(e.target.files[0])}
-       accept="image/png, image/jpeg"  className={`border md:w-[300px] w-[220px]  border-[#DEE2E6] outline-[#407BFF] px-3 py-[4px]`}/>
+             <MyInput name="Image" placeholder='Enter image URL' value={image} setValue={setImage} />
              <div className='mt-10 flex justify-end'>
         <button 
         disabled = {!canSave}

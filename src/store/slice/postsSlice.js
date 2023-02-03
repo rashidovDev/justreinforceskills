@@ -5,12 +5,14 @@ const initialState = [
      { id : 1, title : "Tashkent", 
      content : "Tashkent is one of the best city in Central Asia",
      date : sub(new Date(), { minutes : 10}).toISOString(),
-     image : 'https://t4.ftcdn.net/jpg/03/04/98/91/360_F_304989198_GD6pRZYGHtE0c7wOql0i0m0iSggnZbog.jpg'
+     image : 'https://t4.ftcdn.net/jpg/03/04/98/91/360_F_304989198_GD6pRZYGHtE0c7wOql0i0m0iSggnZbog.jpg',
+     userId : '2'
     },
      { id : 2, title : "Ocean", 
      content : "Pacific ocean is the largest ocean in the world",
      date : sub(new Date(), { minutes : 5}).toISOString(),
-     image : 'https://s.hdnux.com/photos/01/27/77/02/23064740/6/rawImage.jpg'
+     image : 'https://s.hdnux.com/photos/01/27/77/02/23064740/6/rawImage.jpg',
+     userId : '3'
     },
 ]
 
@@ -22,7 +24,7 @@ const postsSlice = createSlice({
             reducer(state, action){
                  state.push(action.payload)
             },
-            prepare(title, content, userId, image){
+            prepare(title,content,image,userId){
                 return {
                     payload : {
                         id : nanoid(),
