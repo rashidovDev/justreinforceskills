@@ -5,7 +5,7 @@ import { setModal } from '../store/slice/modalSlice'
 import PostList from './PostList'
 
 const Posts = () => {
-    const posts = useSelector(state => state.posts)
+    const posts = useSelector(state => state.posts.items)
 
     const orderedPost = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
 

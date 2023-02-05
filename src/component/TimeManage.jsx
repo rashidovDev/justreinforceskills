@@ -9,8 +9,8 @@ const TimeManage = ({timeStamp }) => {
         timeAgo = `${timePeriod} ago`
     }
   return (
- <span title={timeStamp}>
- &nbsp; <i>{timeAgo}</i>
+ <span className='text-[13px] text-slate-500' title={timeStamp}>
+ &nbsp;<i>{timeAgo}</i>
  </span>
   )
 }

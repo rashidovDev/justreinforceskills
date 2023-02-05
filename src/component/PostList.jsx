@@ -1,7 +1,9 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { postDelete } from '../store/slice/postsSlice'
 import PostAuth from './PostAuth'
+import ReactionButtons from './ReactionButtons'
 import TimeManage from './TimeManage'
-
 
 const PostList = ({post}) => {
 
@@ -12,8 +14,8 @@ const PostList = ({post}) => {
        <p>{post.content}</p>
        <div><PostAuth userId={post.userId} /></div>
        <div><TimeManage timeStamp={post.date}/></div>
+       <div><ReactionButtons post = {post}/></div>
     </div>
   )
 }
-
-export default PostList
+export default PostList;
